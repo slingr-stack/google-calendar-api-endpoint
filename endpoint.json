@@ -47,7 +47,9 @@
         "functions.js"
     ],
     "flowSteps": [
-        "apiCallGoogleCalendar"
+        "apiCallGoogleCalendar",
+        "eventsManagerGoogleCalendar",
+        "calendarManagerGoogleCalendar"
     ],
     "configuration":[
         {
