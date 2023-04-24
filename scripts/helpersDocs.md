@@ -9,14 +9,14 @@ The Javascript API of the googlecalendar endpoint has three pieces:
 ## HTTP requests
 You can make `DELETE`,`GET`,`POST`,`PATCH`,`PUT` requests to the [googlecalendar API](API_URL_HERE) like this:
 ```javascript
-var response = app.endpoints.googlecalendar.delete('/calendars/:calendarId/events/:eventId')
+var response = app.endpoints.googlecalendar.delete('/calendars/:calendarId/acl/:ruleId')
 var response = app.endpoints.googlecalendar.get('/users/me/calendarList')
 var response = app.endpoints.googlecalendar.post('/calendars/:calendarId/clear', body)
 var response = app.endpoints.googlecalendar.post('/calendars/:calendarId/clear')
-var response = app.endpoints.googlecalendar.patch('/calendars/:calendarId/acl/:ruleId', body)
-var response = app.endpoints.googlecalendar.patch('/calendars/:calendarId/acl/:ruleId')
-var response = app.endpoints.googlecalendar.put('/calendars/:calendarId', body)
-var response = app.endpoints.googlecalendar.put('/calendars/:calendarId')
+var response = app.endpoints.googlecalendar.patch('/users/me/calendarList/:calendarId', body)
+var response = app.endpoints.googlecalendar.patch('/users/me/calendarList/:calendarId')
+var response = app.endpoints.googlecalendar.put('/calendars/:calendarId/events/:eventId', body)
+var response = app.endpoints.googlecalendar.put('/calendars/:calendarId/events/:eventId')
 ```
 
 Please take a look at the documentation of the [HTTP endpoint](https://github.com/slingr-stack/http-endpoint#javascript-api)
@@ -76,13 +76,6 @@ app.endpoints.googlecalendar.users.me.calendarList.get()
 * HTTP Method: 'GET'
 * More info: https://developers.google.com/calendar/api/v3/reference
 ```javascript
-app.endpoints.googlecalendar.users.me.calendarList.get(calendarId)
-```
----
-* API URL: '/users/me/calendarList/:calendarId'
-* HTTP Method: 'GET'
-* More info: https://developers.google.com/calendar/api/v3/reference
-```javascript
 app.endpoints.googlecalendar.users.me.calendarList.get()
 ```
 ---
@@ -126,13 +119,6 @@ app.endpoints.googlecalendar.calendars.events.instances.get(calendarId, eventId)
 * More info: https://developers.google.com/calendar/api/v3/reference
 ```javascript
 app.endpoints.googlecalendar.users.me.settings.get()
-```
----
-* API URL: '/users/me/settings/:setting'
-* HTTP Method: 'GET'
-* More info: https://developers.google.com/calendar/api/v3/reference
-```javascript
-app.endpoints.googlecalendar.users.me.settings.get(setting)
 ```
 ---
 * API URL: '/users/me/settings/:setting'
@@ -188,14 +174,7 @@ app.endpoints.googlecalendar.calendars.post(body)
 * HTTP Method: 'POST'
 * More info: https://developers.google.com/calendar/api/v3/reference
 ```javascript
-app.endpoints.googlecalendar.calendars.post(calendarId, body)
-```
----
-* API URL: '/calendars/:calendarId'
-* HTTP Method: 'POST'
-* More info: https://developers.google.com/calendar/api/v3/reference
-```javascript
-app.endpoints.googlecalendar.calendars.post(calendarId, body)
+app.endpoints.googlecalendar.calendars.post(body)
 ```
 ---
 * API URL: '/channels/stop'
@@ -362,7 +341,7 @@ Generic flow step for full use of the entire endpoint and its services.
         <td>
             The url to which this endpoint will send the request. This is the exact service to which the http request will be made. <br>
             Possible values are: <br>
-            <i><strong>/calendars/{calendarId}/acl/{ruleId}<br>/users/me/calendarList/{calendarId}<br>/calendars/{calendarId}/events/{eventId}<br>/calendars/{calendarId}/acl<br>/calendars/{calendarId}/acl/{ruleId}<br>/users/me/calendarList<br>/users/me/calendarList/{calendarId}<br>/users/me/calendarList/{calendarId}<br>/calendars/{calendarId}<br>/colors<br>/calendars/{calendarId}/events<br>/calendars/{calendarId}/events/{eventId}<br>/calendars/{calendarId}/events/{eventId}/instances<br>/users/me/settings<br>/users/me/settings/{setting}<br>/users/me/settings/{setting}<br>/calendars/{calendarId}/acl<br>/calendars/{calendarId}/acl/watch<br>/users/me/calendarList<br>/users/me/calendarList/watch<br>/calendars/{calendarId}/clear<br>/calendars<br>/calendars/{calendarId}<br>/calendars/{calendarId}<br>/channels/stop<br>/calendars/{calendarId}/events/import<br>/calendars/{calendarId}/events<br>/calendars/{calendarId}/events/{eventId}/move<br>/calendars/{calendarId}/events/quickAdd<br>/calendars/{calendarId}/events/watch<br>/freeBusy<br>/users/me/settings/watch<br>/calendars/{calendarId}/acl/{ruleId}<br>/users/me/calendarList/{calendarId}<br>/calendars/{calendarId}<br>/calendars/{calendarId}/events/{eventId}<br>/calendars/{calendarId}/acl/{ruleId}<br>/users/me/calendarList/{calendarId}<br>/calendars/{calendarId}<br>/calendars/{calendarId}/events/{eventId}<br></strong></i>
+            <i><strong>/calendars/{calendarId}/acl/{ruleId}<br>/users/me/calendarList/{calendarId}<br>/calendars/{calendarId}/events/{eventId}<br>/calendars/{calendarId}/acl<br>/calendars/{calendarId}/acl/{ruleId}<br>/users/me/calendarList<br>/users/me/calendarList/{calendarId}<br>/calendars/{calendarId}<br>/colors<br>/calendars/{calendarId}/events<br>/calendars/{calendarId}/events/{eventId}<br>/calendars/{calendarId}/events/{eventId}/instances<br>/users/me/settings<br>/users/me/settings/{setting}<br>/calendars/{calendarId}/acl<br>/calendars/{calendarId}/acl/watch<br>/users/me/calendarList<br>/users/me/calendarList/watch<br>/calendars/{calendarId}/clear<br>/calendars<br>/calendars/{calendarId}<br>/channels/stop<br>/calendars/{calendarId}/events/import<br>/calendars/{calendarId}/events<br>/calendars/{calendarId}/events/{eventId}/move<br>/calendars/{calendarId}/events/quickAdd<br>/calendars/{calendarId}/events/watch<br>/freeBusy<br>/users/me/settings/watch<br>/calendars/{calendarId}/acl/{ruleId}<br>/users/me/calendarList/{calendarId}<br>/calendars/{calendarId}<br>/calendars/{calendarId}/events/{eventId}<br>/calendars/{calendarId}/acl/{ruleId}<br>/users/me/calendarList/{calendarId}<br>/calendars/{calendarId}<br>/calendars/{calendarId}/events/{eventId}<br></strong></i>
         </td>
     </tr>
     <tr>

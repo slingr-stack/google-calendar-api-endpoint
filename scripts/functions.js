@@ -151,21 +151,19 @@ endpoint.users.me.calendarList.get = function(calendarId, httpOptions) {
         for (var i = 0 ; i < arguments.length; i++){
             if (isObject(arguments[i])){
                 httpOptions = arguments[i];
+                arguments[i] = undefined;
             }
-        }
+        } 
     }
     var url;
-    switch(arguments.length){
+    switch(httpOptions ? arguments.length - 1 : arguments.length){
         case 0:
 			url = parse('/users/me/calendarList');
 			break;
 		case 1:
 			url = parse('/users/me/calendarList/:calendarId', [calendarId]);
 			break;
-		case 2:
-            url = parse('/users/me/calendarList/:calendarId', [calendarId]);
-            break;
-        default:
+		default:
             sys.logs.error('Invalid argument received.');
             return;
     }
@@ -226,21 +224,23 @@ endpoint.calendars.post = function(calendarId, httpOptions) {
         for (var i = 0 ; i < arguments.length; i++){
             if (isObject(arguments[i])){
                 httpOptions = arguments[i];
+                arguments[i] = undefined;
             }
+        } 
+        if(!httpOptions){
+            sys.logs.error('Invalid argument received.');
+            return;
         }
     }
     var url;
-    switch(arguments.length){
-        case 1:
+    switch(arguments.length - 1){
+        case 0:
 			url = parse('/calendars');
 			break;
-		case 2:
+		case 1:
 			url = parse('/calendars/:calendarId', [calendarId]);
 			break;
-		case 3:
-            url = parse('/calendars/:calendarId', [calendarId,body]);
-            break;
-        default:
+		default:
             sys.logs.error('Invalid argument received.');
             return;
     }
@@ -439,21 +439,19 @@ endpoint.users.me.settings.get = function(setting, httpOptions) {
         for (var i = 0 ; i < arguments.length; i++){
             if (isObject(arguments[i])){
                 httpOptions = arguments[i];
+                arguments[i] = undefined;
             }
-        }
+        } 
     }
     var url;
-    switch(arguments.length){
+    switch(httpOptions ? arguments.length - 1 : arguments.length){
         case 0:
 			url = parse('/users/me/settings');
 			break;
 		case 1:
 			url = parse('/users/me/settings/:setting', [setting]);
 			break;
-		case 2:
-            url = parse('/users/me/settings/:setting', [setting]);
-            break;
-        default:
+		default:
             sys.logs.error('Invalid argument received.');
             return;
     }
