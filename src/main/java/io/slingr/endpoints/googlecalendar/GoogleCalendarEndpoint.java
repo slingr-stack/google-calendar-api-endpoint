@@ -26,7 +26,7 @@ import java.util.List;
 public class GoogleCalendarEndpoint extends HttpEndpoint {
 
     private static final Logger logger = LoggerFactory.getLogger(GoogleCalendarEndpoint.class);
-    private static final String API_URL = "https://admin.googleapis.com/calendar/v3";
+    private static final String API_URL = "https://www.googleapis.com/calendar/v3";
 
     @EndpointProperty
     private String serviceAccountEmail;
@@ -55,7 +55,7 @@ public class GoogleCalendarEndpoint extends HttpEndpoint {
     public static final String ID = "_id";
     public static final String TIMESTAMP = "timestamp";
     public static final String GOOGLE_AUTH_URL = "https://oauth2.googleapis.com/token";
-    public static final String AUTH_URL_SNIPPET = "https://www.googleapis.com/auth/.";
+    public static final String AUTH_URL_SNIPPET = "https://www.googleapis.com/auth/";
 
     @Override
     public void endpointStarted() {
