@@ -1,7 +1,7 @@
 ---
 title: Google Calendar endpoint
 keywords: 
-last_updated: April 20, 2023
+last_updated: April 27, 2023
 tags: []
 summary: "Detailed description of the Google Calendar endpoint."
 ---
@@ -514,11 +514,187 @@ For more information about how shortcuts or flow steps works, and how they are g
 
 
 
-### Custom Flow Steps Name
+### Calendar Manager
 
-Description of Custom Flow Steps
+This flow step will send a request to handle calendars.
 
-*MANUALLY ADD THE DOCUMENTATION OF THESE FLOW STEPS HERE...*
+<h3>Inputs</h3>
+
+<table>
+    <thead>
+    <tr>
+        <th>Label</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+        <th>Visibility</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Actions</td>
+        <td>choice</td>
+        <td>yes</td>
+        <td> - </td>
+        <td>Always</td>
+        <td>
+            This is for the http method to be used against the endpoint. <br>
+            Possible values are: <br>
+            <i><strong>
+                Find One Calendar (GET /calendars/{idCalendar})
+                Find All Calendars (GET /calendars)
+                Create Calendar (POST /calendars)
+                Update Calendar (PUT /calendars/{idCalendar})
+                Delete Calendar (DELETE /calendars/{idCalendar})
+            </strong></i>
+        </td>
+    </tr>
+    <tr>
+        <td>Path Params</td>
+        <td>keyValue</td>
+        <td>no</td>
+        <td> - </td>
+        <td>Always</td>
+        <td>
+            Used when you want to have a custom query params for the call (idCalendar).
+        </td>
+    </tr>
+    <tr>
+        <td>Body</td>
+        <td>json</td>
+        <td>no</td>
+        <td> - </td>
+        <td>Always</td>
+        <td>
+            A payload of data can be sent to the server in the body of the request.
+        </td>
+    </tr>
+    <tr>
+        <td>Full response</td>
+        <td> boolean </td>
+        <td>no</td>
+        <td> false </td>
+        <td> overrideSettings </td>
+        <td>Include extended information about response</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Outputs</h3>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>response</td>
+        <td>object</td>
+        <td>
+            Object resulting from the response to the endpoint call.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+For more information about how shortcuts or flow steps works, and how they are generated, take a look at the [slingr-helpgen tool](https://github.com/slingr-stack/slingr-helpgen).
+
+
+### Events Manager
+
+This flow step will send a request to handle events.
+
+<h3>Inputs</h3>
+
+<table>
+    <thead>
+    <tr>
+        <th>Label</th>
+        <th>Type</th>
+        <th>Required</th>
+        <th>Default</th>
+        <th>Visibility</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Actions</td>
+        <td>choice</td>
+        <td>yes</td>
+        <td> - </td>
+        <td>Always</td>
+        <td>
+            This is for the http method to be used against the endpoint. <br>
+            Possible values are: <br>
+            <i><strong>
+                Find One Event (GET /calendars/{idCalendar}/events/{idEvent})
+                Find All Events (GET /calendars/{idCalendar}/events)
+                Create Event (POST /calendars/{idCalendar}/events)
+                Update Event (PUT /calendars/{idCalendar}/events/{idEvent}) 
+                Delete Event (DELETE /calendars/{idCalendar}/events/{idEvent})
+            </strong></i>
+        </td>
+    </tr>
+    <tr>
+        <td>Path Params</td>
+        <td>keyValue</td>
+        <td>no</td>
+        <td> - </td>
+        <td>Always</td>
+        <td>
+            Used when you want to have a custom query params for the call (idCalendar and idEvent).
+        </td>
+    </tr>
+    <tr>
+        <td>Body</td>
+        <td>json</td>
+        <td>no</td>
+        <td> - </td>
+        <td>Always</td>
+        <td>
+            A payload of data can be sent to the server in the body of the request.
+        </td>
+    </tr>
+    <tr>
+        <td>Full response</td>
+        <td> boolean </td>
+        <td>no</td>
+        <td> false </td>
+        <td> overrideSettings </td>
+        <td>Include extended information about response</td>
+    </tr>
+    </tbody>
+</table>
+
+<h3>Outputs</h3>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>response</td>
+        <td>object</td>
+        <td>
+            Object resulting from the response to the endpoint call.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+For more information about how shortcuts or flow steps works, and how they are generated, take a look at the [slingr-helpgen tool](https://github.com/slingr-stack/slingr-helpgen).
+
 
 
 </details>

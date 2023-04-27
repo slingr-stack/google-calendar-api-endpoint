@@ -14,27 +14,27 @@
 				"possibleValues": [
 					{
 						"label": "GET /calendars/{idCalendar}/events/{eventId}",
-						"description": "Find One Calendar",
+						"description": "Find One Event",
 						"name": "findOne"
 					},
 					{
 						"label": "GET /calendars/{idCalendar}/events",
-						"description": "Find All Calendars",
+						"description": "Find All Events",
 						"name": "findAll"
 					},
 					{
 						"label": "POST /calendars/{idCalendar}/events",
-						"description": "Create Calendar",
+						"description": "Create Event",
 						"name": "create"
 					},
 					{
 						"label": "PUT /calendars/{idCalendar}/events/{eventId}",
-						"description": "Update a Calendar",
+						"description": "Update a Event",
 						"name": "update"
 					},
 					{
 						"label": "DELETE /calendars/{idCalendar}/events/{eventId}",
-						"description": "Delete a Calendar",
+						"description": "Delete a Event",
 						"name": "delete"
 					}
 				]
